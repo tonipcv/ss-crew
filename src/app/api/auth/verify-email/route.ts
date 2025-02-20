@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
   try {
-    const { searchParams } = new URL(request.url);
-    const token = searchParams.get('token');
+    const { token } = await request.json();
 
     if (!token) {
       return NextResponse.json(
@@ -13,17 +12,22 @@ export async function GET(request: Request) {
       );
     }
 
-    const user = await prisma.user.findUnique({
-      where: { verificationToken: token }
+    // Buscar usuário com o token de verificação
+    const user = await prisma.user.findFirst({
+      where: {
+        verificationToken: token,
+        emailVerified: null
+      }
     });
 
     if (!user) {
       return NextResponse.json(
-        { message: 'Token inválido' },
+        { message: 'Token inválido ou já utilizado' },
         { status: 400 }
       );
     }
 
+    // Atualizar o usuário como verificado
     await prisma.user.update({
       where: { id: user.id },
       data: {
@@ -36,13 +40,12 @@ export async function GET(request: Request) {
       { message: 'Email verificado com sucesso' },
       { status: 200 }
     );
+
   } catch (error) {
-    console.error('Email verification error:', error);
+    console.error('Erro ao verificar email:', error);
     return NextResponse.json(
       { message: 'Erro ao verificar email' },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 } 

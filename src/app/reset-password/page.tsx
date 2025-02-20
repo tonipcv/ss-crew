@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import XLogo from '@/components/XLogo';
 import AuthLayout from '@/components/AuthLayout';
 
@@ -18,6 +18,8 @@ const validatePassword = (password: string) => {
 };
 
 export default function ResetPassword() {
+  const searchParams = useSearchParams();
+  const token = searchParams?.get('token');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,6 +34,13 @@ export default function ResetPassword() {
   });
   const router = useRouter();
 
+  useEffect(() => {
+    if (!token) {
+      setError('Token inválido ou expirado');
+      router.push('/login');
+    }
+  }, [token, router]);
+
   // Adicione esta função para atualizar as validações quando a senha mudar
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newPassword = e.target.value;
@@ -44,6 +53,12 @@ export default function ResetPassword() {
     setIsSubmitting(true);
     setMessage('');
     setError('');
+
+    if (!token) {
+      setError('Token inválido ou expirado');
+      setIsSubmitting(false);
+      return;
+    }
 
     // Validar se as senhas são iguais
     if (password !== confirmPassword) {
@@ -66,13 +81,16 @@ export default function ResetPassword() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ 
+          token,
+          password 
+        }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message);
+        throw new Error(data.message || 'Erro ao atualizar senha');
       }
 
       setMessage('Senha atualizada com sucesso!');
@@ -84,7 +102,7 @@ export default function ResetPassword() {
 
     } catch (error) {
       console.error('Erro ao atualizar senha:', error);
-      setError('Ocorreu um erro ao atualizar a senha. Por favor, tente novamente.');
+      setError(error instanceof Error ? error.message : 'Ocorreu um erro ao atualizar a senha. Por favor, tente novamente.');
     } finally {
       setIsSubmitting(false);
     }
