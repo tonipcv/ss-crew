@@ -90,13 +90,12 @@ export function PricingSection() {
           </CardContent>
           <CardFooter className="relative">
             <a 
-              href="https://t.me/+mZs1t5_biYFmMTBh" 
+              href="https://t.me/+tOj6h-B6rrM0MDYx"
               target="_blank"
-              className="w-full"
+              rel="noopener noreferrer"
+              className="mt-8 block w-full py-3 px-4 bg-green-500 text-black text-center font-medium rounded-xl hover:bg-green-400 transition-colors"
             >
-              <Button className="w-full bg-gradient-to-r from-green-400 to-green-500 text-black hover:from-green-500 hover:to-green-600 font-semibold text-sm py-5">
-                Entrar no Grupo
-              </Button>
+              Entrar no Grupo
             </a>
           </CardFooter>
         </Card>

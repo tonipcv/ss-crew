@@ -2,20 +2,20 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { OptimizedImage } from '../components/OptimizedImage';
 import { PandaPlayer } from '../components/PandaPlayer';
 import { Navigation } from '../components/Navigation';
 import { PricingSection } from '@/components/pricing/PricingSection';
 
 export default function InformacaoClient() {
-  const [showPricing, setShowPricing] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPricing(true);
-    }, 1000);
-
-    return () => clearTimeout(timer);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
@@ -26,36 +26,86 @@ export default function InformacaoClient() {
             <OptimizedImage src="/ft-icone.png" alt="Futuros Tech Logo" width={40} height={40} />
           </Link>
           
-          {/* Botão de Assistir Treinamento - Agora redirecionando para /series-restrito */}
-          <Link 
-            href="/series-restrito"
+          {/* Botão de Entrar no Grupo */}
+          <a 
+            href="https://t.me/+tOj6h-B6rrM0MDYx"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-xs px-3 py-1.5 text-black bg-white rounded-full hover:bg-gray-100 transition-colors duration-200"
           >
-            Assistir Treinamento
-          </Link>
+            Entrar no Grupo
+          </a>
         </div>
       </header>
 
-      <main className="pt-20 pb-20 container mx-auto px-4">
-        <div className="max-w-3xl mx-auto">
+      <main className="pt-20 pb-20">
+        {/* Headline */}
+        <div className="max-w-4xl mx-auto px-4 py-12">
+          <div className="text-center mb-8">
+            <h2 className="text-xl md:text-2xl font-light">
+              <span className="text-neutral-200">Somente com uma Operação</span>{' '}
+              <div className="mt-2">
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-white via-neutral-200 to-white bg-clip-text text-transparent font-medium">
+                    você pode fazer o{' '}
+                  </span>
+                  <span className="relative inline-block group">
+                    <span className="bg-gradient-to-r from-white via-neutral-100 to-white bg-clip-text text-transparent font-semibold">
+                      Dobro do Investimento
+                    </span>
+                    <div className="absolute -bottom-1 left-0 w-full h-[1px]">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white to-white/40 animate-pulse" />
+                    </div>
+                    <div className="absolute -inset-1 bg-white/5 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  </span>
+                </span>
+              </div>
+            </h2>
+          </div>
+
           <div className="bg-black rounded-lg overflow-hidden mb-8">
             <PandaPlayer videoId="6a82bc71-be86-4d83-be38-99cf230e7298" />
           </div>
 
-          {/* Mensagem que desaparece quando os planos aparecem */}
-          {!showPricing && (
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg p-6 text-center mb-16">
-              <div className="flex items-center justify-center mb-3">
-                <div className="animate-spin rounded-full h-6 w-6 border-2 border-green-400 border-t-transparent"></div>
+          {/* Depoimentos logo após o vídeo */}
+          <div className="relative mt-8">
+            <div className="overflow-hidden rounded-xl">
+              <div 
+                className="flex transition-transform duration-500 ease-out" 
+                style={{ 
+                  transform: `translateX(-${currentTestimonial * (windowWidth <= 768 ? 50 : 33.333)}%)`
+                }}
+              >
+                {[1, 2, 3, 4, 5, 6].map((num) => (
+                  <div 
+                    key={num} 
+                    className="w-1/2 md:w-1/3 flex-shrink-0 px-2"
+                  >
+                    <Image
+                      src={`/depoimento${num}.webp`}
+                      alt={`Depoimento ${num}`}
+                      width={400}
+                      height={300}
+                      className="w-full h-auto rounded-xl"
+                    />
+                  </div>
+                ))}
               </div>
-              <p className="text-gray-400 text-sm">
-                Assista o vídeo para ter acesso ao grupo exclusivo
-              </p>
             </div>
-          )}
+          </div>
+        </div>
 
-          {/* Seção de Planos - Aparece após o timer */}
-          {showPricing && <PricingSection />}
+        {/* Mensagem antes dos planos */}
+        <div className="text-center max-w-4xl mx-auto px-4 py-12">
+          <h2 className="text-xl md:text-2xl font-medium bg-gradient-to-r from-white via-neutral-200 to-white bg-clip-text text-transparent">
+            Faça o seu upgrade agora ou aguarde o desconto
+          </h2>
+        </div>
+
+        {/* Pricing Section */}
+        <div className="max-w-4xl mx-auto px-4">
+          <PricingSection />
         </div>
       </main>
 

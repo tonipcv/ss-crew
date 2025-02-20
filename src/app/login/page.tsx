@@ -8,7 +8,6 @@ import { signIn } from "next-auth/react"
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import XLogo from '@/components/XLogo';
 import AuthLayout from '@/components/AuthLayout';
-import { FcGoogle } from 'react-icons/fc';
 
 export default function Login() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,10 +41,6 @@ export default function Login() {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleGoogleSignIn = () => {
-    signIn('google', { callbackUrl: '/series-restrito' });
   };
 
   return (
@@ -110,26 +105,6 @@ export default function Login() {
             </Link>
           </div>
         </div>
-
-        {/* Separador */}
-        <div className="relative my-6">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-zinc-800"></div>
-          </div>
-          <div className="relative flex justify-center text-xs">
-            <span className="px-2 text-zinc-500 bg-black">ou</span>
-          </div>
-        </div>
-
-        {/* Botão do Google */}
-        <button
-          type="button"
-          onClick={handleGoogleSignIn}
-          className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-zinc-300 bg-transparent border border-zinc-800 rounded-lg hover:bg-zinc-900 transition-colors duration-200"
-        >
-          <FcGoogle className="h-4 w-4" />
-          Continuar com Google
-        </button>
       </div>
     </AuthLayout>
   );
