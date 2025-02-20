@@ -3,15 +3,18 @@ import Image from 'next/image';
 
 const XLogo = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-col items-center space-y-3">
       <Image
-        src="/katsu.png"
-        alt="Katsu Logo"
+        src="/ft-icone.png"
+        alt="FT Logo"
         width={80}
-        height={24}
+        height={80}
         className="h-auto"
         priority
       />
+      <p className="text-sm text-zinc-400 text-center">
+        Curso Gratuito em Parceria com Daniel Katsu
+      </p>
     </div>
   );
 };
