@@ -116,6 +116,24 @@ export default function ResetPassword() {
             />
           </div>
 
+          <div>
+            <label htmlFor="confirmPassword" className="block mb-2 text-sm font-medium text-zinc-400">
+              Confirmar Senha
+            </label>
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              name="confirmPassword" 
+              placeholder="Confirme sua nova senha" 
+              required 
+              autoComplete="new-password"
+              className="w-full px-3 py-2 text-sm bg-black border border-zinc-700 rounded-xl focus:ring-1 focus:ring-white focus:border-white transition-colors duration-200 placeholder-zinc-500"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              minLength={8}
+            />
+          </div>
+
           <div className="text-sm bg-zinc-900 p-4 rounded-xl border border-zinc-800">
             <p className="text-zinc-400">A senha deve conter:</p>
             <ul className="mt-2 space-y-1">
