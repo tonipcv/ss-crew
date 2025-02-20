@@ -65,11 +65,43 @@ export default function SeriesPage() {
     },
     {
       id: 6,
-      title: "Bônus: Informação Exclusiva!",
+      title: "Gerenciamento",
       duration: "6:00",
       thumbnail: "/teaser-thumb.jpg",
       number: 6,
+      videoId: "c3853fe1-2f07-4215-9778-a20ed81d1b23"
+    },
+    {
+      id: 7,
+      title: "Informação Importante!",
+      duration: "6:00",
+      thumbnail: "/teaser-thumb.jpg",
+      number: 7,
       videoId: "c689c709-5643-4fb6-be32-6f080a5f5066"
+    },
+    {
+      id: 8,
+      title: "Estratégia Exclusiva 1",
+      duration: "8:00",
+      thumbnail: "/teaser-thumb.jpg",
+      number: 8,
+      videoId: "blocked"
+    },
+    {
+      id: 9,
+      title: "Estratégia Exclusiva 2",
+      duration: "10:00",
+      thumbnail: "/teaser-thumb.jpg",
+      number: 9,
+      videoId: "blocked"
+    },
+    {
+      id: 10,
+      title: "Estratégia Exclusiva 3",
+      duration: "7:00",
+      thumbnail: "/teaser-thumb.jpg",
+      number: 10,
+      videoId: "blocked"
     }
   ]
 
@@ -127,9 +159,13 @@ export default function SeriesPage() {
               {episodes.map((episode) => (
                 <button
                   key={episode.id}
-                  onClick={() => setActiveEpisode(episode.id)}
+                  onClick={() => episode.videoId !== "blocked" ? setActiveEpisode(episode.id) : null}
                   className={`w-full flex gap-2 lg:gap-3 p-2 rounded-lg transition-colors ${
-                    activeEpisode === episode.id ? 'bg-gray-400/30 border-l-4 border-green-300' : 'hover:bg-gray-800'
+                    activeEpisode === episode.id 
+                      ? 'bg-gray-400/30 border-l-4 border-green-300' 
+                      : episode.videoId === "blocked"
+                      ? 'opacity-50 cursor-not-allowed hover:bg-gray-800'
+                      : 'hover:bg-gray-800'
                   }`}
                 >
                   <div className="relative w-24 aspect-video">
@@ -139,6 +175,13 @@ export default function SeriesPage() {
                       fill
                       className="object-cover rounded"
                     />
+                    {episode.videoId === "blocked" && (
+                      <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                        <span className="text-xs text-white font-medium px-2 py-1 bg-gray-800/80 rounded-full">
+                          Em breve...
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <div className="flex-1 text-left">
                     <h3 className="font-semibold text-green-300 text-sm">Aula {episode.number}</h3>

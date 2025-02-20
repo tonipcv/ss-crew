@@ -24,6 +24,59 @@ export default function ChatRestrito() {
   const { data: session } = useSession();
   const [isInitialLoading, setIsInitialLoading] = useState(true);
 
+  const dummyMessages: Message[] = [
+    {
+      id: 1,
+      text: "COMPRA #BTCUSDT\nEntrada na zona 42.500\nALAVANCAGEM ISOLADA 10x\nAlvos: 43.000 - 43.500 - 44.000\nStooploss: 42.000",
+      createdAt: new Date(Date.now() - 15 * 60000).toISOString()
+    },
+    {
+      id: 2,
+      text: "VENDA #ETHUSDT\nEntrada na zona 2.250\nALAVANCAGEM ISOLADA 10x\nAlvos: 2.200 - 2.150 - 2.100\nStooploss: 2.300",
+      createdAt: new Date(Date.now() - 30 * 60000).toISOString()
+    },
+    {
+      id: 3,
+      text: "Take-Profit #BTCUSDT\nFuturos Tech\nLucro: +1.85%\nPeríodo: 35min ⏰\nAlvo: 1",
+      createdAt: new Date(Date.now() - 45 * 60000).toISOString()
+    },
+    {
+      id: 4,
+      text: "COMPRA #SOLUSDT\nEntrada na zona 125.50\nALAVANCAGEM ISOLADA 10x\nAlvos: 127.00 - 128.50 - 130.00\nStooploss: 124.00",
+      createdAt: new Date(Date.now() - 60 * 60000).toISOString()
+    },
+    {
+      id: 5,
+      text: "Take-Profit #ETHUSDT\nFuturos Tech\nLucro: +2.15%\nPeríodo: 1h20min ⏰\nAlvo: 2",
+      createdAt: new Date(Date.now() - 75 * 60000).toISOString()
+    },
+    {
+      id: 6,
+      text: "VENDA #BNBUSDT\nEntrada na zona 315.00\nALAVANCAGEM ISOLADA 10x\nAlvos: 312.00 - 310.00 - 308.00\nStooploss: 317.00",
+      createdAt: new Date(Date.now() - 90 * 60000).toISOString()
+    },
+    {
+      id: 7,
+      text: "AVISO\nEntrada editada, zona de entrada atualizada\nÓtimo dia a todos!\nAtt Futuros Tech",
+      createdAt: new Date(Date.now() - 105 * 60000).toISOString()
+    },
+    {
+      id: 8,
+      text: "Take-Profit #SOLUSDT\nFuturos Tech\nLucro: +1.95%\nPeríodo: 45min ⏰\nAlvo: 1",
+      createdAt: new Date(Date.now() - 120 * 60000).toISOString()
+    },
+    {
+      id: 9,
+      text: "COMPRA #ADAUSDT\nEntrada na zona 0.585\nALAVANCAGEM ISOLADA 10x\nAlvos: 0.595 - 0.605 - 0.615\nStooploss: 0.575",
+      createdAt: new Date(Date.now() - 135 * 60000).toISOString()
+    },
+    {
+      id: 10,
+      text: "Take-Profit #BNBUSDT\nFuturos Tech\nLucro: +2.25%\nPeríodo: 1h05min ⏰\nAlvo: 3",
+      createdAt: new Date(Date.now() - 150 * 60000).toISOString()
+    }
+  ];
+
   useEffect(() => {
     const checkUser = async () => {
       try {
@@ -52,17 +105,19 @@ export default function ChatRestrito() {
     if (isLoading) return;
     setIsLoading(true);
     try {
-      const response = await fetch('https://servidor-servidor-telegram.dpbdp1.easypanel.host/messages/');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
+      await new Promise(resolve => setTimeout(resolve, 300));
       
-      // Atualiza as mensagens sempre que receber dados
-      setMessages(data);
+      const updatedMessages = dummyMessages.map(msg => ({
+        ...msg,
+        createdAt: new Date(Date.now() - Math.random() * 180 * 60000).toISOString()
+      }));
       
+      setMessages(updatedMessages.sort((a, b) => 
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      ));
     } catch (error) {
       console.error('Error fetching messages:', error);
+      setMessages(dummyMessages);
     } finally {
       setIsLoading(false);
     }
@@ -354,7 +409,7 @@ export default function ChatRestrito() {
           </button>
         </div>
 
-        {/* Mensagens com Blur mais intenso */}
+        {/* Mensagens com Blur */}
         <div className="rounded-lg shadow-md p-4 overflow-y-auto mx-4 md:mx-0 h-[calc(100%-3rem)] relative">
           <div className="space-y-2 blur-[8px] select-none pointer-events-none">
             {messages.map((message, index) => {
@@ -368,6 +423,9 @@ export default function ChatRestrito() {
               );
             })}
           </div>
+
+          {/* Overlay para bloquear inspeção */}
+          <div className="absolute inset-0 bg-transparent" />
         </div>
       </div>
 
