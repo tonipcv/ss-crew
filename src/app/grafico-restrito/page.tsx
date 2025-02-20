@@ -8,6 +8,7 @@ import { Navigation } from '../components/Navigation';
 import { useSession } from "next-auth/react";
 import { useRouter } from 'next/navigation';
 import { BottomNavigation } from '../../components/BottomNavigation';
+import UpgradeMessage from '@/components/UpgradeMessage';
 
 declare global {
   interface Window {
@@ -86,14 +87,12 @@ export default function GraficoRestrito() {
           <p className="text-xs text-gray-300 truncate">
             Versão gratuita. Acesso limitado
           </p>
-          <a 
-            href="https://checkout.k17.com.br/subscribe/anual-ft-promocional"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link 
+            href="/informacao"
             className="text-green-400 text-xs font-medium hover:text-green-300 transition-colors whitespace-nowrap"
           >
             Fazer Upgrade
-          </a>
+          </Link>
         </div>
       </div>
 

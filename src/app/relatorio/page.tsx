@@ -610,9 +610,17 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#111] text-gray-200">
       <header className="fixed top-0 w-full bg-[#111]/90 backdrop-blur-sm z-50 px-4 py-3">
-        <div className="flex justify-center lg:justify-start">
+        <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <Image src="/ft-icone.png" alt="Futuros Tech Logo" width={40} height={40} />
+          </Link>
+          
+          {/* Botão de Upgrade - Agora redirecionando para /informacao */}
+          <Link 
+            href="/informacao"
+            className="px-4 py-1.5 text-xs font-medium text-black bg-white rounded-full hover:bg-gray-100 transition-all duration-200"
+          >
+            Fazer Upgrade
           </Link>
         </div>
       </header>
