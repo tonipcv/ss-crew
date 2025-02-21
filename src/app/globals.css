@@ -11,3 +11,13 @@ body {
 
 /* Resto do seu CSS global aqui */
 
+@layer base {
+  :root {
+    --font-satoshi: 'Satoshi', sans-serif;
+  }
+}
+
+.font-satoshi {
+  font-family: var(--font-satoshi);
+}
+

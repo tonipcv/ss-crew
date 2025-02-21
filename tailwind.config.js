@@ -66,6 +66,11 @@ module.exports = {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
+  			},
+  			highlight: {
+  				light: '#8683f7',
+  				DEFAULT: '#625df4',
+  				dark: '#4340d4'
   			}
   		},
   		borderRadius: {
