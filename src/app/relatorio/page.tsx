@@ -89,7 +89,8 @@ export default function Home() {
     { number: 10, name: 'Outubro' },
     { number: 11, name: 'Novembro' },
     { number: 12, name: 'Dezembro' },
-    { number: 1, name: 'Janeiro' }
+    { number: 1, name: 'Janeiro' },
+    { number: 2, name: 'Fevereiro' }
   ];
 
   const filteredData = initialTrades.filter(trade => {
@@ -100,7 +101,7 @@ export default function Home() {
     const tradeMonth = tradeDate.getMonth() + 1;
     const matchesMonth = tradeMonth === selectedMonth;
     
-    if (selectedMonth !== 11 && selectedMonth !== 12 && selectedMonth !== 1) {
+    if (selectedMonth !== 11 && selectedMonth !== 12 && selectedMonth !== 1 && selectedMonth !== 2) {
         return matchesSearch && matchesDirection && matchesMonth;
     }
     return false;
@@ -507,13 +508,212 @@ export default function Home() {
     ].filter(trade => 
         trade.ativo.toLowerCase().includes(searchTerm.toLowerCase()) &&
         (selectedDirection === 'ALL' || trade.direcao === selectedDirection)
+    ) : selectedMonth === 2 ? [
+      {"data": "01/02/2025", "ativo": "XRP/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+      {"data": "01/02/2025", "ativo": "XRP/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "01/02/2025", "ativo": "PIPPIN/USDT", "direcao": "LONG", "percentual": 100.20, "alvo": 6},
+    {"data": "01/02/2025", "ativo": "TAO/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "02/02/2025", "ativo": "CRV/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "02/02/2025", "ativo": "ARKM/USDT", "direcao": "LONG", "percentual": 60.00, "alvo": 4},
+    {"data": "02/02/2025", "ativo": "EAOS/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "02/02/2025", "ativo": "CELO/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "02/02/2025", "ativo": "CRV/USDT", "direcao": "LONG", "percentual": 22.60, "alvo": 2},
+    {"data": "02/02/2025", "ativo": "FLOW/USDT", "direcao": "LONG", "percentual": 21.20, "alvo": 2},
+    {"data": "02/02/2025", "ativo": "BEL/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "02/02/2025", "ativo": "BIO/USDT", "direcao": "LONG", "percentual": 20.60, "alvo": 2},
+    {"data": "02/02/2025", "ativo": "TRX/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "02/02/2025", "ativo": "SAND/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "02/02/2025", "ativo": "GMX/USDT", "direcao": "LONG", "percentual": 180.00, "alvo": 10},
+    {"data": "02/02/2025", "ativo": "BNX/USDT", "direcao": "LONG", "percentual": 20.60, "alvo": 2},
+    {"data": "03/02/2025", "ativo": "KAVA/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "03/02/2025", "ativo": "ARPA/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "03/02/2025", "ativo": "1000RATS/USDT", "direcao": "LONG", "percentual": 200.40, "alvo": 11},
+    {"data": "03/02/2025", "ativo": "ETH/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "03/02/2025", "ativo": "RONIN/USDT", "direcao": "LONG", "percentual": 139.60, "alvo": 8},
+    {"data": "03/02/2025", "ativo": "LPT/USDT", "direcao": "LONG", "percentual": 60.00, "alvo": 4},
+    {"data": "04/02/2025", "ativo": "XRP/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "04/02/2025", "ativo": "XLM/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "04/02/2025", "ativo": "SOL/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "04/02/2025", "ativo": "ONDO/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "04/02/2025", "ativo": "DODOX/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "05/02/2025", "ativo": "CELO/USDT", "direcao": "LONG", "percentual": 42.60, "alvo": 3},
+    {"data": "05/02/2025", "ativo": "IOTA/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "05/02/2025", "ativo": "ONDO/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "05/02/2025", "ativo": "JTO/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "05/02/2025", "ativo": "BAN/USDT", "direcao": "LONG", "percentual": 100.90, "alvo": 6},
+    {"data": "05/02/2025", "ativo": "AVAAI/USDT", "direcao": "LONG", "percentual": 180.00, "alvo": 10},
+    {"data": "06/02/2025", "ativo": "RAYSOL/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "06/02/2025", "ativo": "SWARMS/USDT", "direcao": "LONG", "percentual": 45.00, "alvo": 3},
+    {"data": "06/02/2025", "ativo": "CRV/USDT", "direcao": "LONG", "percentual": 19.80, "alvo": 2},
+    {"data": "06/02/2025", "ativo": "LISTA/USDT", "direcao": "LONG", "percentual": 80.60, "alvo": 5},
+    {"data": "06/02/2025", "ativo": "HMSTR/USDT", "direcao": "LONG", "percentual": 100.00, "alvo": 6},
+    {"data": "06/02/2025", "ativo": "BOME/USDT", "direcao": "LONG", "percentual": 120.20, "alvo": 7},
+    {"data": "06/02/2025", "ativo": "ORDI/USDT", "direcao": "LONG", "percentual": 140.00, "alvo": 8},
+    {"data": "06/02/2025", "ativo": "RUNE/USDT", "direcao": "LONG", "percentual": 120.20, "alvo": 7},
+    {"data": "07/02/2025", "ativo": "PIPPIN/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "07/02/2025", "ativo": "VVV/USDT", "direcao": "LONG", "percentual": 200.20, "alvo": 11},
+    {"data": "07/02/2025", "ativo": "BAN/USDT", "direcao": "LONG", "percentual": 60.60, "alvo": 4},
+    {"data": "07/02/2025", "ativo": "CHILLGUY/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "08/02/2025", "ativo": "UXLINK/USDT", "direcao": "LONG", "percentual": 60.20, "alvo": 4},
+    {"data": "08/02/2025", "ativo": "ICP/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "08/02/2025", "ativo": "SWARMS/USDT", "direcao": "SHORT", "percentual": 41.40, "alvo": 3},
+    {"data": "08/02/2025", "ativo": "CELO/USDT", "direcao": "LONG", "percentual": 201.00, "alvo": 11},
+    {"data": "09/02/2025", "ativo": "BNX/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "09/02/2025", "ativo": "KOMA/USDT", "direcao": "LONG", "percentual": 20.20, "alvo": 2},
+    {"data": "09/02/2025", "ativo": "VVV/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "09/02/2025", "ativo": "DF/USDT", "direcao": "LONG", "percentual": 100.00, "alvo": 6},
+    {"data": "09/02/2025", "ativo": "UMA/USDT", "direcao": "LONG", "percentual": 60.00, "alvo": 4},
+    {"data": "09/02/2025", "ativo": "ID/USDT", "direcao": "LONG", "percentual": 120.00, "alvo": 7},
+    {"data": "09/02/2025", "ativo": "G/USDT", "direcao": "LONG", "percentual": 120.00, "alvo": 7},
+    {"data": "09/02/2025", "ativo": "ZRX/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "10/02/2025", "ativo": "SWELL/USDT", "direcao": "LONG", "percentual": 200.40, "alvo": 11},
+    {"data": "10/02/2025", "ativo": "ILV/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "10/02/2025", "ativo": "RLC/USDT", "direcao": "LONG", "percentual": 120.00, "alvo": 7},
+    {"data": "10/02/2025", "ativo": "BANANA/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "10/02/2025", "ativo": "AVAAI/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "10/02/2025", "ativo": "TST/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "11/02/2025", "ativo": "BNB/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "11/02/2025", "ativo": "SCRT/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "11/02/2025", "ativo": "BEL/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "11/02/2025", "ativo": "ARC/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "11/02/2025", "ativo": "JTO/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "11/02/2025", "ativo": "EIGEN/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "11/02/2025", "ativo": "COMP/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "12/02/2025", "ativo": "BAN/USDT", "direcao": "LONG", "percentual": 40.40, "alvo": 3},
+    {"data": "12/02/2025", "ativo": "ALPHA/USDT", "direcao": "LONG", "percentual": 120.00, "alvo": 7},
+    {"data": "12/02/2025", "ativo": "HBAR/USDT", "direcao": "LONG", "percentual": 100.00, "alvo": 6},
+    {"data": "12/02/2025", "ativo": "ZEREBRO/USDT", "direcao": "LONG", "percentual": 120.20, "alvo": 7},
+    {"data": "12/02/2025", "ativo": "AERO/USDT", "direcao": "LONG", "percentual": 200.20, "alvo": 11},
+    {"data": "12/02/2025", "ativo": "LAYER/USDT", "direcao": "LONG", "percentual": 60.00, "alvo": 4},
+    {"data": "12/02/2025", "ativo": "NEIROETH/USDT", "direcao": "LONG", "percentual": 200.25, "alvo": 11},
+    {"data": "12/02/2025", "ativo": "LTC/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "12/02/2025", "ativo": "ALPACA/USDT", "direcao": "LONG", "percentual": 60.00, "alvo": 4},
+    {"data": "13/02/2025", "ativo": "OM/USDT", "direcao": "LONG", "percentual": 120.00, "alvo": 7},
+    {"data": "13/02/2025", "ativo": "POPCAT/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "13/02/2025", "ativo": "CAKE/USDT", "direcao": "LONG", "percentual": 160.00, "alvo": 9},
+    {"data": "13/02/2025", "ativo": "SWARMS/USDT", "direcao": "LONG", "percentual": 103.80, "alvo": 6},
+    {"data": "13/02/2025", "ativo": "TRUMP/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "13/02/2025", "ativo": "B3/USDT", "direcao": "LONG", "percentual": 120.00, "alvo": 7},
+    {"data": "14/02/2025", "ativo": "GRIFFAIN/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "14/02/2025", "ativo": "THE/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "14/02/2025", "ativo": "HEI/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "14/02/2025", "ativo": "ARC/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "14/02/2025", "ativo": "ALCH/USDT", "direcao": "LONG", "percentual": 60.20, "alvo": 4},
+    {"data": "14/02/2025", "ativo": "ILV/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "14/02/2025", "ativo": "VINE/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "14/02/2025", "ativo": "PYTH/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "15/02/2025", "ativo": "ONE/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "15/02/2025", "ativo": "CAKE/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "15/02/2025", "ativo": "CRV/USDT", "direcao": "LONG", "percentual": 41.80, "alvo": 3},
+    {"data": "15/02/2025", "ativo": "CYBER/USDT", "direcao": "LONG", "percentual": 21.00, "alvo": 2},
+    {"data": "15/02/2025", "ativo": "NEIRO/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "15/02/2025", "ativo": "ETH/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "15/02/2025", "ativo": "WIF/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "15/02/2025", "ativo": "GOAT/USDT", "direcao": "LONG", "percentual": 41.80, "alvo": 3},
+    {"data": "15/02/2025", "ativo": "EGLD/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "15/02/2025", "ativo": "HOT/USDT", "direcao": "LONG", "percentual": 20.60, "alvo": 2},
+    {"data": "16/02/2025", "ativo": "HIGH/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "16/02/2025", "ativo": "GRIFFAIN/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "16/02/2025", "ativo": "1INCH/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "16/02/2025", "ativo": "B3/USDT", "direcao": "LONG", "percentual": 200.80, "alvo": 11},
+    {"data": "16/02/2025", "ativo": "HIPPO/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "16/02/2025", "ativo": "ZEREBRO/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "16/02/2025", "ativo": "POPCAT/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "17/02/2025", "ativo": "STORJ/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "17/02/2025", "ativo": "EOS/USDT", "direcao": "LONG", "percentual": 60.20, "alvo": 4},
+    {"data": "17/02/2025", "ativo": "PIPPIN/USDT", "direcao": "SHORT", "percentual": 160.60, "alvo": 9},
+    {"data": "17/02/2025", "ativo": "S/USDT", "direcao": "LONG", "percentual": 200.20, "alvo": 11},
+    {"data": "17/02/2025", "ativo": "RONIN/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "17/02/2025", "ativo": "ARK/USDT", "direcao": "LONG", "percentual": 120.20, "alvo": 7},
+    {"data": "17/02/2025", "ativo": "CRV/USDT", "direcao": "LONG", "percentual": 23.00, "alvo": 2},
+    {"data": "18/02/2025", "ativo": "IP/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "18/02/2025", "ativo": "POWR/USDT", "direcao": "LONG", "percentual": 40.20, "alvo": 3},
+    {"data": "18/02/2025", "ativo": "BNX/USDT", "direcao": "LONG", "percentual": 140.00, "alvo": 8},
+    {"data": "18/02/2025", "ativo": "QTUM/USDT", "direcao": "LONG", "percentual": 19.80, "alvo": 2},
+    {"data": "18/02/2025", "ativo": "SXP/USDT", "direcao": "LONG", "percentual": 140.20, "alvo": 8},
+    {"data": "18/02/2025", "ativo": "ACH/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "18/02/2025", "ativo": "DYDX/USDT", "direcao": "LONG", "percentual": 101.80, "alvo": 6},
+    {"data": "18/02/2025", "ativo": "CRV/USDT", "direcao": "LONG", "percentual": 200.40, "alvo": 11},
+    {"data": "18/02/2025", "ativo": "B3/USDT", "direcao": "LONG", "percentual": 180.40, "alvo": 10},
+    {"data": "19/02/2025", "ativo": "THE/USDT", "direcao": "LONG", "percentual": 60.00, "alvo": 4},
+    {"data": "19/02/2025", "ativo": "VINE/USDT", "direcao": "LONG", "percentual": 60.40, "alvo": 4},
+    {"data": "19/02/2025", "ativo": "IP/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "19/02/2025", "ativo": "GPS/USDT", "direcao": "LONG", "percentual": 40.60, "alvo": 3},
+    {"data": "19/02/2025", "ativo": "LOKA/USDT", "direcao": "LONG", "percentual": 80.20, "alvo": 5},
+    {"data": "19/02/2025", "ativo": "LTC/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "20/02/2025", "ativo": "NEAR/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "20/02/2025", "ativo": "CELO/USDT", "direcao": "LONG", "percentual": 83.20, "alvo": 5},
+    {"data": "20/02/2025", "ativo": "XTZ/USDT", "direcao": "LONG", "percentual": 101.00, "alvo": 6},
+    {"data": "20/02/2025", "ativo": "SPX/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "20/02/2025", "ativo": "FLM/USDT", "direcao": "LONG", "percentual": 200.40, "alvo": 11},
+    {"data": "21/02/2025", "ativo": "1000RATS/USDT", "direcao": "LONG", "percentual": 200.80, "alvo": 11},
+    {"data": "21/02/2025", "ativo": "PONKE/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "21/02/2025", "ativo": "VVV/USDT", "direcao": "LONG", "percentual": 140.00, "alvo": 8},
+    {"data": "21/02/2025", "ativo": "BIO/USDT", "direcao": "LONG", "percentual": 200.60, "alvo": 11},
+    {"data": "21/02/2025", "ativo": "EOS/USDT", "direcao": "LONG", "percentual": 122.60, "alvo": 7},
+    {"data": "22/02/2025", "ativo": "CHILLGUY/USDT", "direcao": "LONG", "percentual": 44.00, "alvo": 3},
+    {"data": "22/02/2025", "ativo": "PONKE/USDT", "direcao": "LONG", "percentual": 160.00, "alvo": 9},
+    {"data": "22/02/2025", "ativo": "SFP/USDT", "direcao": "LONG", "percentual": 40.20, "alvo": 3},
+    {"data": "23/02/2025", "ativo": "TRB/USDT", "direcao": "LONG", "percentual": 60.00, "alvo": 4},
+    {"data": "23/02/2025", "ativo": "SSV/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "23/02/2025", "ativo": "S/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "23/02/2025", "ativo": "OM/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "23/02/2025", "ativo": "GRASS/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "23/02/2025", "ativo": "GLM/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "23/02/2025", "ativo": "KOMA/USDT", "direcao": "LONG", "percentual": 120.20, "alvo": 7},
+    {"data": "23/02/2025", "ativo": "HOT/USDT", "direcao": "LONG", "percentual": 20.60, "alvo": 2},
+    {"data": "24/02/2025", "ativo": "KAITO/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "24/02/2025", "ativo": "BNX/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "24/02/2025", "ativo": "TST/USDT", "direcao": "LONG", "percentual": 82.00, "alvo": 5},
+    {"data": "24/02/2025", "ativo": "XTZ/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "24/02/2025", "ativo": "SPELL/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "24/02/2025", "ativo": "TAO/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "24/02/2025", "ativo": "GTC/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "24/02/2025", "ativo": "PEOPLE/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "24/02/2025", "ativo": "MELANIA/USDT", "direcao": "LONG", "percentual": 81.20, "alvo": 5},
+    {"data": "24/02/2025", "ativo": "OXT/USDT", "direcao": "LONG", "percentual": 60.00, "alvo": 4},
+    {"data": "24/02/2025", "ativo": "ARKM/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "25/02/2025", "ativo": "DOGE/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "25/02/2025", "ativo": "BAN/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "25/02/2025", "ativo": "BRETT/USDT", "direcao": "LONG", "percentual": 40.00, "alvo": 3},
+    {"data": "25/02/2025", "ativo": "100000MOG/USDT", "direcao": "LONG", "percentual": 180.20, "alvo": 10},
+    {"data": "25/02/2025", "ativo": "ETHW/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "25/02/2025", "ativo": "BNB/USDT", "direcao": "LONG", "percentual": 20.00, "alvo": 2},
+    {"data": "25/02/2025", "ativo": "AR/USDT", "direcao": "LONG", "percentual": 100.00, "alvo": 6},
+    {"data": "25/02/2025", "ativo": "LAYER/USDT", "direcao": "LONG", "percentual": 200.20, "alvo": 11},
+    {"data": "25/02/2025", "ativo": "ACT/USDT", "direcao": "LONG", "percentual": 200.20, "alvo": 11},
+    {"data": "25/02/2025", "ativo": "KOMA/USDT", "direcao": "LONG", "percentual": 160.20, "alvo": 9},
+    {"data": "25/02/2025", "ativo": "HEI/USDT", "direcao": "LONG", "percentual": 100.00, "alvo": 6},
+    {"data": "26/02/2025", "ativo": "TIA/USDT", "direcao": "LONG", "percentual": 100.00, "alvo": 6},
+    {"data": "26/02/2025", "ativo": "MKR/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "26/02/2025", "ativo": "ALCH/USDT", "direcao": "SHORT", "percentual": 80.00, "alvo": 5},
+    {"data": "26/02/2025", "ativo": "IO/USDT", "direcao": "LONG", "percentual": 140.00, "alvo": 8},
+    {"data": "26/02/2025", "ativo": "LPT/USDT", "direcao": "LONG", "percentual": 80.00, "alvo": 5},
+    {"data": "26/02/2025", "ativo": "NEIROETH/USDT", "direcao": "LONG", "percentual": 20.40, "alvo": 2},
+    {"data": "26/02/2025", "ativo": "IP/USDT", "direcao": "LONG", "percentual": 19.60, "alvo": 2},
+    {"data": "27/02/2025", "ativo": "THE/USDT", "direcao": "LONG", "percentual": 100.00, "alvo": 6},
+    {"data": "27/02/2025", "ativo": "BIO/USDT", "direcao": "LONG", "percentual": 200.60, "alvo": 11},
+    {"data": "27/02/2025", "ativo": "SONIC/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "27/02/2025", "ativo": "VANA/USDT", "direcao": "LONG", "percentual": 160.00, "alvo": 9},
+    {"data": "27/02/2025", "ativo": "RUNE/USDT", "direcao": "LONG", "percentual": 20.40, "alvo": 2},
+    {"data": "27/02/2025", "ativo": "KOMA/USDT", "direcao": "LONG", "percentual": 60.00, "alvo": 4},
+    {"data": "27/02/2025", "ativo": "D/USDT", "direcao": "LONG", "percentual": -90.00, "alvo": "-"},
+    {"data": "27/02/2025", "ativo": "SOLV/USDT", "direcao": "LONG", "percentual": 143.20, "alvo": 8},
+    {"data": "28/02/2025", "ativo": "VINE/USDT", "direcao": "LONG", "percentual": 200.00, "alvo": 11},
+    {"data": "28/02/2025", "ativo": "ETH/USDT", "direcao": "LONG", "percentual": 180.00, "alvo": 10},
+    {"data": "28/02/2025", "ativo": "NEIROETH/USDT", "direcao": "LONG", "percentual": 200.40, "alvo": 11},
+    {"data": "28/02/2025", "ativo": "HMSTR/USDT", "direcao": "LONG", "percentual": 200.40, "alvo": 11},
+    {"data": "28/02/2025", "ativo": "TLM/USDT", "direcao": "LONG", "percentual": 120.00, "alvo": 7},
+    ].filter(trade => 
+        trade.ativo.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (selectedDirection === 'ALL' || trade.direcao === selectedDirection)
     ) : []
   );
 
-  const totalOperacoes = selectedMonth === 12 ? 154 : selectedMonth === 1 ? 167 : filteredData.length;
-  const operacoesLucrativas = selectedMonth === 12 ? 137 : selectedMonth === 1 ? 151 : filteredData.filter(t => t.percentual > 0).length;
-  const taxaAcerto = selectedMonth === 12 ? 89.0 : selectedMonth === 1 ? 90.4 : (totalOperacoes > 0 ? ((operacoesLucrativas / totalOperacoes) * 100) : 0);
-  const valorizacaoTotal = selectedMonth === 12 ? 11917 : selectedMonth === 1 ? 13134 : Number(filteredData.reduce((acc, curr) => {
+  const totalOperacoes = selectedMonth === 12 ? 154 : selectedMonth === 1 ? 167 : selectedMonth === 2 ? 194 : filteredData.length;
+  const operacoesLucrativas = selectedMonth === 12 ? 137 : selectedMonth === 1 ? 151 : selectedMonth === 2 ? 165 : filteredData.filter(t => t.percentual > 0).length;
+  const taxaAcerto = selectedMonth === 12 ? 89.0 : selectedMonth === 1 ? 90.4 : selectedMonth === 2 ? 85.1 : (totalOperacoes > 0 ? ((operacoesLucrativas / totalOperacoes) * 100) : 0);
+  const valorizacaoTotal = selectedMonth === 12 ? 11917 : selectedMonth === 1 ? 13134 : selectedMonth === 2 ? 13785 : Number(filteredData.reduce((acc, curr) => {
     const valor = typeof curr.percentual === 'string' 
       ? parseFloat(curr.percentual) 
       : curr.percentual;
@@ -589,6 +789,17 @@ export default function Home() {
       { alvo: "Alvo 9", operacoes: 39, vitoria: 23.35, lucro: 454 },
       { alvo: "Alvo 10", operacoes: 35, vitoria: 20.96, lucro: 460 },
       { alvo: "Alvo 11", operacoes: 29, vitoria: 17.37, lucro: 410 }
+    ] : selectedMonth === 2 ? [
+      { alvo: "Alvo 2", operacoes: 97, vitoria: 88.18, lucro: 64 },
+      { alvo: "Alvo 3", operacoes: 97, vitoria: 88.18, lucro: 258 },
+      { alvo: "Alvo 4", operacoes: 97, vitoria: 88.18, lucro: 452 },
+      { alvo: "Alvo 5", operacoes: 97, vitoria: 88.18, lucro: 646 },
+      { alvo: "Alvo 6", operacoes: 80, vitoria: 72.73, lucro: 670 },
+      { alvo: "Alvo 7", operacoes: 68, vitoria: 61.82, lucro: 686 },
+      { alvo: "Alvo 8", operacoes: 55, vitoria: 50.0, lucro: 640 },
+      { alvo: "Alvo 9", operacoes: 48, vitoria: 43.64, lucro: 638 },
+      { alvo: "Alvo 10", operacoes: 43, vitoria: 39.09, lucro: 644 },
+      { alvo: "Alvo 11", operacoes: 38, vitoria: 34.55, lucro: 630 }
     ] : []).find(t => t.alvo === selectedTarget);
     
     if (!targetData) return;
@@ -610,17 +821,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#111] text-gray-200">
       <header className="fixed top-0 w-full bg-[#111]/90 backdrop-blur-sm z-50 px-4 py-3">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-center lg:justify-start">
           <Link href="/" className="flex items-center">
             <Image src="/ft-icone.png" alt="Futuros Tech Logo" width={40} height={40} />
-          </Link>
-          
-          {/* Botão de Upgrade - Agora redirecionando para /informacao */}
-          <Link 
-            href="/informacao"
-            className="px-4 py-1.5 text-xs font-medium text-black bg-white rounded-full hover:bg-gray-100 transition-all duration-200"
-          >
-            Fazer Upgrade
           </Link>
         </div>
       </header>
@@ -721,7 +924,8 @@ export default function Home() {
                     selectedMonth === 9 ? 'Setembro' : 
                     selectedMonth === 10 ? 'Outubro' : 
                     selectedMonth === 11 ? 'Novembro' :
-                    selectedMonth === 12 ? 'Dezembro' : 'Janeiro'
+                    selectedMonth === 12 ? 'Dezembro' : 
+                    selectedMonth === 1 ? 'Janeiro' : 'Fevereiro'
                   }
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -804,7 +1008,7 @@ export default function Home() {
                         { alvo: "Alvo 9", lucro: 271 },
                         { alvo: "Alvo 10", lucro: 250 },
                         { alvo: "Alvo 11", lucro: 182 }
-                      ] : [
+                      ] : selectedMonth === 1 ? [
                         { alvo: "Alvo 2", lucro: 20 },
                         { alvo: "Alvo 3", lucro: 40 },
                         { alvo: "Alvo 4", lucro: 60 },
@@ -815,6 +1019,18 @@ export default function Home() {
                         { alvo: "Alvo 9", lucro: 160 },
                         { alvo: "Alvo 10", lucro: 180 },
                         { alvo: "Alvo 11", lucro: 200 }
+                      ] : selectedMonth === 2 ? [
+                        { alvo: "Alvo 2", lucro: 64 },
+                        { alvo: "Alvo 3", lucro: 258 },
+                        { alvo: "Alvo 4", lucro: 452 },
+                        { alvo: "Alvo 5", lucro: 646 },
+                        { alvo: "Alvo 6", lucro: 670 },
+                        { alvo: "Alvo 7", lucro: 686 },
+                        { alvo: "Alvo 8", lucro: 640 },
+                        { alvo: "Alvo 9", lucro: 638 },
+                        { alvo: "Alvo 10", lucro: 644 },
+                        { alvo: "Alvo 11", lucro: 630 }
+                      ] : [
                       ]).map((target) => (
                         <option key={target.alvo} value={target.alvo}>
                           {target.alvo}
@@ -843,8 +1059,8 @@ export default function Home() {
             </div>
           )}
 
-          {/* Análise por Alvo - Agosto até Dezembro */}
-          {(selectedMonth === 8 || selectedMonth === 9 || selectedMonth === 10 || selectedMonth === 11 || selectedMonth === 12 || selectedMonth === 1) && showTargetAnalysis ? (
+          {/* Análise por Alvo - Agosto até Fevereiro */}
+          {(selectedMonth === 8 || selectedMonth === 9 || selectedMonth === 10 || selectedMonth === 11 || selectedMonth === 12 || selectedMonth === 1 || selectedMonth === 2) && showTargetAnalysis ? (
             <div className="mt-8">
               <div className="sm:flex sm:items-center">
                 <div className="sm:flex-auto">
@@ -859,7 +1075,8 @@ export default function Home() {
                           selectedMonth === 9 ? 'Setembro' : 
                           selectedMonth === 10 ? 'Outubro' : 
                           selectedMonth === 11 ? 'Novembro' :
-                          selectedMonth === 12 ? 'Dezembro' : 'Janeiro'
+                          selectedMonth === 12 ? 'Dezembro' : 
+                          selectedMonth === 1 ? 'Janeiro' : 'Fevereiro'
                         }
                       </h2>
                       <p className="mt-2 text-sm text-gray-400">
