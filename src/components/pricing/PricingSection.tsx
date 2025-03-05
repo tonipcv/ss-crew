@@ -52,7 +52,7 @@ export function PricingSection() {
         <Card className="bg-gradient-to-br from-zinc-900 to-black border-2 border-green-500/20 rounded-2xl relative overflow-hidden hover:border-green-500/40 transition-all duration-300">
           <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent"></div>
           <Badge className="absolute top-4 right-4 bg-green-500 text-black hover:bg-green-600 font-bold text-[10px]">
-            Somente 19/03
+            Somente 18/03
           </Badge>
           <CardHeader className="pb-6 relative">
             <CardTitle className="text-lg font-bold text-white">Plano VIP + FIP</CardTitle>
