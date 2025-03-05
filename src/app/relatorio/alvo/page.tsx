@@ -16,7 +16,7 @@ interface TargetAnalysis {
 export default function TargetAnalysis() {
   const [capital, setCapital] = useState<string>('');
   const [selectedTarget, setSelectedTarget] = useState<string>('');
-  const [selectedMonth, setSelectedMonth] = useState<number>(8); // Default to August
+  const [selectedMonth, setSelectedMonth] = useState<8 | 1 | 2>(8); // Default to August
   const [result, setResult] = useState<number | null>(null);
   
   // For debugging
@@ -25,7 +25,7 @@ export default function TargetAnalysis() {
     console.log('Available targets for month:', alvosData[selectedMonth]);
   }, [selectedMonth]);
 
-  const alvosData = {
+  const alvosData: Record<8 | 1 | 2, TargetAnalysis[]> = {
     8: [ // Agosto
       { alvo: "Alvo 2 (20%)", operacoes: 45, vitoria: 81, lucro: -10 },
       { alvo: "Alvo 3 (40%)", operacoes: 36, vitoria: 65, lucro: 8 },
@@ -137,7 +137,7 @@ export default function TargetAnalysis() {
                   id="month"
                   value={selectedMonth}
                   onChange={(e) => {
-                    const newMonth = parseInt(e.target.value);
+                    const newMonth = parseInt(e.target.value) as 8 | 1 | 2;
                     console.log('Changing month to:', newMonth);
                     setSelectedMonth(newMonth);
                     setSelectedTarget('');
