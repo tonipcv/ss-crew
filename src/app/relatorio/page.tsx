@@ -887,7 +887,7 @@ export default function Home() {
                   </option>
                 ))}
               </select>
-              {(selectedMonth === 8 || selectedMonth === 9 || selectedMonth === 10 || selectedMonth === 11 || selectedMonth === 12 || selectedMonth === 1) && (
+              {(selectedMonth === 8 || selectedMonth === 9 || selectedMonth === 10 || selectedMonth === 11 || selectedMonth === 12 || selectedMonth === 1 || selectedMonth === 2) && (
                 <div className="flex gap-2">
                   <button
                     onClick={() => setShowCalculator(true)}
@@ -1076,7 +1076,8 @@ export default function Home() {
                           selectedMonth === 10 ? 'Outubro' : 
                           selectedMonth === 11 ? 'Novembro' :
                           selectedMonth === 12 ? 'Dezembro' : 
-                          selectedMonth === 1 ? 'Janeiro' : 'Fevereiro'
+                          selectedMonth === 1 ? 'Janeiro' : 
+                          'Fevereiro'
                         }
                       </h2>
                       <p className="mt-2 text-sm text-gray-400">
@@ -1163,7 +1164,7 @@ export default function Home() {
                           { alvo: "Alvo 9", operacoes: 49, vitoria: 32, lucro: 271 },
                           { alvo: "Alvo 10", operacoes: 42, vitoria: 27, lucro: 250 },
                           { alvo: "Alvo 11", operacoes: 32, vitoria: 21, lucro: 182 }
-                        ] : [
+                        ] : selectedMonth === 1 ? [
                           { alvo: "Alvo 2", operacoes: 148, vitoria: 88.62, lucro: 126 },
                           { alvo: "Alvo 3", operacoes: 117, vitoria: 70.06, lucro: 298 },
                           { alvo: "Alvo 4", operacoes: 101, vitoria: 60.48, lucro: 436 },
@@ -1174,7 +1175,18 @@ export default function Home() {
                           { alvo: "Alvo 9", operacoes: 39, vitoria: 23.35, lucro: 454 },
                           { alvo: "Alvo 10", operacoes: 35, vitoria: 20.96, lucro: 460 },
                           { alvo: "Alvo 11", operacoes: 29, vitoria: 17.37, lucro: 410 }
-                        ]).map((target, index) => (
+                        ] : selectedMonth === 2 ? [
+                          { alvo: "Alvo 2", operacoes: 97, vitoria: 88.18, lucro: 64 },
+                          { alvo: "Alvo 3", operacoes: 97, vitoria: 88.18, lucro: 258 },
+                          { alvo: "Alvo 4", operacoes: 97, vitoria: 88.18, lucro: 452 },
+                          { alvo: "Alvo 5", operacoes: 97, vitoria: 88.18, lucro: 646 },
+                          { alvo: "Alvo 6", operacoes: 80, vitoria: 72.73, lucro: 670 },
+                          { alvo: "Alvo 7", operacoes: 68, vitoria: 61.82, lucro: 686 },
+                          { alvo: "Alvo 8", operacoes: 55, vitoria: 50.0, lucro: 640 },
+                          { alvo: "Alvo 9", operacoes: 48, vitoria: 43.64, lucro: 638 },
+                          { alvo: "Alvo 10", operacoes: 43, vitoria: 39.09, lucro: 644 },
+                          { alvo: "Alvo 11", operacoes: 38, vitoria: 34.55, lucro: 630 }
+                        ] : []).map((target, index) => (
                           <tr key={index} className="hover:bg-gray-800/50">
                             <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-300 sm:pl-0">
                               {target.alvo}
