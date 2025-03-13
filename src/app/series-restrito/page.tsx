@@ -85,7 +85,7 @@ export default function SeriesPage() {
       duration: "8:00",
       thumbnail: "/teaser-thumb.jpg",
       number: 8,
-      videoId: "blocked"
+      videoId: "2036f33a-c8f4-40ac-891b-e808264c1eb6"
     },
     {
       id: 9,
@@ -93,7 +93,7 @@ export default function SeriesPage() {
       duration: "10:00",
       thumbnail: "/teaser-thumb.jpg",
       number: 9,
-      videoId: "blocked"
+      videoId: "a5df84b2-e787-4a79-9a87-5cb8aeef7cec"
     },
     {
       id: 10,
